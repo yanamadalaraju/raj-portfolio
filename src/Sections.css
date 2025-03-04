@@ -1,0 +1,289 @@
+.section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: background 0.3s ease-in-out;
+    padding: 2rem;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #007bff;
+    transition: color 0.3s;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .dark-mode .section {
+    background: #222;
+  }
+  
+  .dark-mode h2 {
+    color: #00d4ff;
+  }
+  
+  .dark-mode p {
+    color: #ddd;
+  }
+  
+  /* Add some animation effects */
+  .section:nth-child(odd) {
+    background: #f8f9fa;
+  }
+  
+  .section:nth-child(even) {
+    background: #e9ecef;
+  }
+  
+  .dark-mode .section:nth-child(odd),
+  .dark-mode .section:nth-child(even) {
+    background: #1a1a1a;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 2rem;
+    }
+  
+    p {
+      font-size: 1rem;
+    }
+  }
+  
+/* Home Section Styling */
+#home {
+  position: relative;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Stylish Heading */
+.home-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Highlight Text */
+.highlight-1 {
+  color: #1a1818;
+  text-shadow: 0px 0px 10px rgba(255, 77, 77, 0.8);
+  font-weight: bold;
+}
+@keyframes colorShift {
+  0% { color: #e61010; }
+  25% { color: #0849ef; }
+  50% { color: #e1148c; }
+  75% { color: #0b74eb; }
+  100% { color: #ea0b0b; }
+}
+
+.highlight {
+  font-weight: bold;
+  animation: colorShift 3s infinite linear;
+  background: linear-gradient(45deg, #f0dbdb, #ccebe8);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+
+
+/* Subtitle */
+.home-subtitle {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  max-width: 600px;
+  color: var(--secondary-color);
+}
+
+/* Call-To-Action Button */
+.cta-button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(45deg, #ff4d4d, #ff944d);
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, #ff944d, #ff4d4d);
+}
+
+/* Crazy Cursor Animation */
+#home::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(255, 77, 77, 0.3) 10%, rgba(255, 148, 77, 0) 60%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: transform 0.1s ease-out;
+  z-index: -1;
+}
+
+/* Cursor Follow Effect */
+body {
+  cursor: none;
+}
+
+body:hover #home::before {
+  transition: transform 0.05s ease-out;
+}
+
+/* Glowing Cursor Effect */
+.cursor-effect {
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  background: #ff4d4d;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: transform 0.15s ease-out, background 0.3s;
+  mix-blend-mode: difference;
+  z-index: 9999;
+}
+
+/* Cursor Follower - Soft Glow Effect */
+.cursor-follower {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 77, 77, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: transform 0.2s ease-out;
+  mix-blend-mode: lighten;
+  z-index: 9998;
+}
+
+/* When hovering over links or buttons */
+.nav-links li:hover ~ .cursor-effect,
+.cta-button:hover ~ .cursor-effect {
+  width: 30px;
+  height: 30px;
+  background: #ffcc00;
+}
+
+.nav-links li:hover ~ .cursor-follower,
+.cta-button:hover ~ .cursor-follower {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 204, 0, 0.3);
+}
+
+
+/* Home Section Styling */
+#home {
+  position: relative;
+  text-align: center;
+  padding: 6rem 2rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e1e1e 0%, #252525 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Title and Subtitle */
+.home-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff4d4d, #ffcc00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: floatText 3s ease-in-out infinite;
+}
+
+.home-subtitle {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  color: #e0e0e0;
+  font-weight: 500;
+  max-width: 800px;
+}
+
+/* Floating Animation for Title */
+@keyframes floatText {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Call-to-Action Button */
+.cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #ff4d4d, #ffcc00);
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  box-shadow: 0px 4px 15px rgba(255, 77, 77, 0.3);
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 20px rgba(255, 77, 77, 0.5);
+}
+
+/* Background Floating Shapes */
+.floating-shapes {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 77, 77, 0.4) 10%, rgba(255, 148, 77, 0) 60%);
+  border-radius: 50%;
+  top: 10%;
+  left: 20%;
+  animation: floatShape 5s infinite ease-in-out alternate;
+}
+
+.floating-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 204, 0, 0.3) 20%, rgba(255, 148, 77, 0) 80%);
+  border-radius: 50%;
+  bottom: 10%;
+  right: 15%;
+  animation: floatShape 6s infinite ease-in-out alternate;
+}
+
+/* Floating Animation for Background Elements */
+@keyframes floatShape {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(30px) rotate(10deg); }
+}
+
