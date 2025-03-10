@@ -31,13 +31,17 @@ import profilePic4 from "../src/images/program.jpg";
 import stockImage from "../src/images/Stock_management.jpg";
 import chatbottImage from "../src/images/Ai_chat_bot.png";
 import databaseeImage from "../src/images/Ai_db_agent.jpg";
+import webdevelopment from "../src/images/webdevelopment.jpg";
+import fullstackdevelopment from "../src/images/full-stack-development.jpg";
+import dataAnalyst from "../src/images/data_analysts.jpg";
 import "./Projects.css";
+import "./Certifications.css";
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [activeCard, setActiveCard] = useState(null);
   const [popupType, setPopupType] = useState(null);
-
+  const [selectedCert, setSelectedCert] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     const skillsSection = document.querySelector("#skills");
@@ -181,6 +185,33 @@ const App = () => {
       setStatusMessage("Failed to send message. Please try again.");
     }
   };
+  
+  const certifications = [
+    {
+      id: 1,
+      title: "Python Fullstack Developer",
+      provider: "Itvedanth",
+      image: fullstackdevelopment,
+      link: "/certifications/python-fullstack.pdf",
+      description: "Certified as a Python Fullstack Developer with expertise in React, Node.js, and MySQL.",
+    },
+    {
+      id: 2,
+      title: "Machine Learning Data Analyst",
+      provider: "Amazon",
+      image: dataAnalyst,
+      link: "/certifications/ml-data-analyst.pdf",
+      description: "Gained knowledge in ML data analysis and AI-driven solutions at Amazon.",
+    },
+    {
+      id: 3,
+      title: "Web Development",
+      provider: "Udemy",
+      image: webdevelopment,
+      link: "/certifications/web-development.pdf",
+      description: "Completed an in-depth web development course covering HTML, CSS, JavaScript, and React.",
+    },
+  ];
 
   return (
     <div className={darkMode ? "dark-mode" : "light-mode"}>
@@ -233,7 +264,7 @@ const App = () => {
               exit={{ opacity: 0, x: 50 }}
               transition={{ duration: 0.5 }}
             >
-              {["Home", "About", "Skills", "Projects", "Contact"].map(
+              {["Home", "About", "Skills", "Projects", "Contact","Certifications"].map(
                 (item, index) => (
                   <motion.li
                     key={index}
@@ -278,7 +309,7 @@ const App = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="home-title"
           >
-            Hi, I'm <span className="highlight-1">Batta</span> 👋
+            Hi, I'm <span className="highlight-1">Rajesh</span> 👋
           </motion.h2>
 
           <motion.p
@@ -522,6 +553,81 @@ const App = () => {
           ))}
         </div>
       </section>
+    
+     {/* Certifications */}
+        
+     <section id="certifications" className={`certifications-section ${darkMode ? "dark" : "light"}`}>
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="certifications-title"
+      >
+        🎓 My Certifications
+      </motion.h2>
+
+      <div className="certifications-grid">
+        {certifications.map((cert, index) => (
+          <motion.div
+            key={index}
+            className="certification-card"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{
+              scale: 1.05,
+              rotateX: 10,
+              boxShadow: darkMode
+                ? "0px 10px 30px rgba(0, 255, 150, 0.7)"
+                : "0px 10px 30px rgba(255, 140, 0, 0.7)",
+            }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+            onClick={() => setSelectedCert(cert)}
+          >
+            <div className="certification-card-inner">
+              <div className="certification-card-front">
+                <img
+                  src={cert.image}
+                  alt={cert.title}
+                  className="certification-image"
+                />
+                <h3>{cert.title}</h3>
+                <p className="provider">{cert.provider}</p>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Modal Popup */}
+      {selectedCert && (
+        <div className="modal-overlay" onClick={() => setSelectedCert(null)}>
+          <motion.div
+            className={`modal-content ${darkMode ? "dark" : "light"}`}
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ duration: 0.5 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="close-button" onClick={() => setSelectedCert(null)}>✖</button>
+            <h2>{selectedCert.title}</h2>
+            <p><strong>Provided By:</strong> {selectedCert.provider}</p>
+            <img src={selectedCert.image} alt={selectedCert.title} className="modal-image" />
+            <p>{selectedCert.description}</p>
+            <motion.a
+              href={selectedCert.link}
+              className="certification-button"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, backgroundColor: "#1db954" }}
+              transition={{ duration: 0.3 }}
+            >
+              View Certificate →
+            </motion.a>
+          </motion.div>
+        </div>
+      )}
+    </section>
 
       <section id="contact" className="contact-section">
         {/* Title */}
