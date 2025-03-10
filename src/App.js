@@ -383,7 +383,7 @@ const App = () => {
                 <span className="highlight">Fullstack Developer</span> with
                 expertise in **React, JavaScript, Python, Django, and modern
                 UI/UX** principles. I love crafting **scalable web
-                applications** and seamless user experiences.
+                applications** and seamless user experiences...
               </motion.p>
             </div>
           </div>
