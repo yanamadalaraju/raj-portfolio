@@ -401,7 +401,7 @@ const App = () => {
                 </h3>
                 <p>
                   {popupType === "personal"
-                    ? "📍 Location: India 🌍 | 📞 Contact: +91 9346843156 | ✉️ Email: rajeshyanamadala2000@gmail.com"
+                    ? "📍 Location: Pakistan 🌍 | 📞 Contact: +91 9346843156 | ✉️ Email: rajeshyanamadala2000@gmail.com"
                     : "🎓 B.Tech in Civil Engineering (2023) | Python Fullstack Developer Certification"}
                 </p>
                 <button onClick={() => setPopupType(null)}>Close</button>
