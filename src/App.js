@@ -34,6 +34,7 @@ import databaseeImage from "../src/images/Ai_db_agent.jpg";
 import webdevelopment from "../src/images/webdevelopment.jpg";
 import fullstackdevelopment from "../src/images/full-stack-development.jpg";
 import dataAnalyst from "../src/images/data_analysts.jpg";
+import mysql from "../src/images/mysql_sql.avif";
 import "./Projects.css";
 import "./Certifications.css";
 
@@ -190,9 +191,9 @@ const App = () => {
     {
       id: 1,
       title: "Python Fullstack Developer",
-      provider: "Itvedanth",
+      provider: "Itvedant",
       image: fullstackdevelopment,
-      link: "/certifications/python-fullstack.pdf",
+      link: "/certifications/PythonCertificate.jpg",
       description: "Certified as a Python Fullstack Developer with expertise in React, Node.js, and MySQL.",
     },
     {
@@ -206,10 +207,18 @@ const App = () => {
     {
       id: 3,
       title: "Web Development",
-      provider: "Udemy",
+      provider: "IT Vedant",
       image: webdevelopment,
-      link: "/certifications/web-development.pdf",
+      link: "/certifications/webdevelopment-cert.jpg",
       description: "Completed an in-depth web development course covering HTML, CSS, JavaScript, and React.",
+    },
+    {
+      id: 4,
+      title: "My SQl",
+      provider: "IT Vedant",
+      image: mysql,
+      link: "/certifications/Mysql.jpg",
+      description: "Completed a comprehensive SQL course covering database design, queries, normalization, and optimization techniques.",
     },
   ];
 
