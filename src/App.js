@@ -171,7 +171,7 @@ const App = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/send-email",
+        "http://44.202.90.100:5000/send-email",
         formData
       );
       setStatusMessage(response.data.message);
