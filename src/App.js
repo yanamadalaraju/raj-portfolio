@@ -278,7 +278,7 @@ const App = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="home-title"
           >
-            Hi, I'm <span className="highlight-1">Rajesh</span> 👋
+            Hi, I'm <span className="highlight-1">Batta</span> 👋
           </motion.h2>
 
           <motion.p
@@ -401,7 +401,7 @@ const App = () => {
                 </h3>
                 <p>
                   {popupType === "personal"
-                    ? "📍 Location: India 🌍 | 📞 Contact: +91 7013697300 | ✉️ Email: rajeshyanamadala2000@gmail.com"
+                    ? "📍 Location: India 🌍 | 📞 Contact: +91 9346843156 | ✉️ Email: rajeshyanamadala2000@gmail.com"
                     : "🎓 B.Tech in Civil Engineering (2023) | Python Fullstack Developer Certification"}
                 </p>
                 <button onClick={() => setPopupType(null)}>Close</button>
