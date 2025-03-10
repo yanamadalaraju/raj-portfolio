@@ -135,7 +135,7 @@ const App = () => {
   const personalInfo = {
     title: "Personal Info",
     details: [
-      "👤 Name: Rajesh",
+      "👤 Name: venky",
       "📍 Location: India",
       "📧 Email: rajesh@example.com",
       "📞 Phone: +91 9876543210",
