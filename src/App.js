@@ -291,6 +291,7 @@ const App = () => {
           ) : (
             <FaMoon size={24} color="#4a90e2" />
           )}
+
         </button>
       </nav>
 
@@ -667,7 +668,7 @@ const App = () => {
             <p>
               <strong>📞 Contact:</strong> +91 9346843156
             </p>
-            <p>Feel free to reach out for collaborations or opportunities!</p>
+            <p>Feel free to reach out for collaborations or opportunities!!</p>
           </motion.div>
 
           {/* Social Links & Contact Form Card */}
