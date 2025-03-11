@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Helmet } from "react-helmet";
+
 import {
   FaSun,
   FaMoon,
@@ -45,6 +47,10 @@ const App = () => {
   const [popupType, setPopupType] = useState(null);
   const [selectedCert, setSelectedCert] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => {
+    document.title = "🚀 Portfolio | Rajesh";
+  }, []);
+
   useEffect(() => {
     const skillsSection = document.querySelector("#skills");
     const stardustCursor = document.createElement("div");
@@ -202,8 +208,14 @@ const App = () => {
       description: "Completed a comprehensive SQL course covering database design, queries, normalization, and optimization techniques.",
     },
   ];
-
+ 
   return (
+    <>
+    <Helmet>
+        <title>🚀 Portfolio | Your Name</title>
+        <link rel="icon" type="image/png" href="/apple-touch-icon.png" />
+      </Helmet>
+    
     <div className={darkMode ? "dark-mode" : "light-mode"}>
       {/* Cursor Effect */}
       <div className="cursor-effect"></div>
@@ -798,6 +810,7 @@ const App = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
