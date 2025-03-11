@@ -76,3 +76,87 @@ h2 {
     display: none;
   }
 }
+
+/* Home Title Styling */
+.home-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Typing Effect Styling */
+.highlight-1 {
+  color: #ffcc00; /* Highlight color */
+  font-weight: bold;
+}
+
+/* Welcome GIF Animation */
+.welcome-gif {
+  width: 80px; /* Adjust size */
+  height: auto;
+  animation: jumpAnimation 5s infinite ease-in-out; /* Sync with typing */
+}
+
+/* Jumping Animation */
+@keyframes jumpAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+  .home-title {
+    font-size: 1.8rem;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .welcome-gif {
+    width: 60px;
+  }
+
+  .scroll-hint {
+  text-align: center;
+  font-size: 1rem;
+  color: #605e5e;
+  margin-bottom: 10px;
+  animation: fadeInOut 2s infinite alternate;
+  }
+}
+
+/* Scroll Indicator */
+
+
+/* Fade In and Out Effect */
+@keyframes fadeInOut {
+  0% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* Hide indicator on small screens where vertical scrolling is used */
+

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet";
 
+import { Typewriter } from "react-simple-typewriter";
 import {
   FaSun,
   FaMoon,
@@ -74,7 +75,7 @@ const App = () => {
       document.body.removeChild(stardustCursor);
     };
   }, []);
-
+ 
   const skillsData = [
     {
       category: "Frontend Development",
@@ -103,6 +104,8 @@ const App = () => {
     },
   ];
 
+  
+
   const projects = [
     {
       title: "Stock Management System",
@@ -110,7 +113,7 @@ const App = () => {
         "Developed a Stock Management System using React, Bootstrap, and Node.js, ensuring efficient inventory tracking and management.LOGIN CREDENTIALS FOR { Admin } --->'Email:admin@gmail.com',password:admin@123, LOGIN CREDENTIAL FOR { Users } --->'rajesh@gmail.com',password:456 ",
       image: stockImage,
       link: "http://175.29.21.7:81", // Direct external link
-      icon: <FaBox size={24} color="#ff4757" />,
+      icon: <FaBox size={24} color=" #ff4757" />,
     },
     {
       title: "AI Chatbot",
@@ -306,14 +309,28 @@ const App = () => {
           transition={{ duration: 1.2, ease: "easeInOut" }}
           className="home-container"
         >
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="home-title"
-          >
-            Hi, I'm <span className="highlight-1">Rajesh</span> 👋
-          </motion.h2>
+          <motion.h2 className="home-title">
+  Hi, I'm{" "}
+  <span className="highlight-1">
+    <Typewriter
+      words={["Rajesh"]}
+      loop={false}
+      typeSpeed={100}
+      deleteSpeed={50}
+      delaySpeed={1000}
+      cursor
+      cursorStyle="|"
+    />
+  </span>
+
+  {/* Animated Welcome GIF */}
+  <img 
+    src="https://onlinegiftools.com/images/examples-onlinegiftools/jump-hello-transparent.gif" 
+    alt="Welcome to my portfolio"
+    className="welcome-gif"
+  />
+</motion.h2>
+
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -477,6 +494,7 @@ const App = () => {
 
 
 
+
     <div className="skills-container">
       {skillsData.map((category, index) => (
         <motion.div
@@ -518,6 +536,9 @@ const App = () => {
         </motion.div>
       ))}
     </div>
+    <div className="scroll-hint">
+  <span>⬅️ Scroll to see skills ➡️</span>
+</div>
   </div>
 </section>
 
@@ -569,7 +590,7 @@ const App = () => {
                       project.link.startsWith("http") ? "_blank" : "_self"
                     } // Open external links in a new tab
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, backgroundColor: "#ff4757" }}
+                    whileHover={{ scale: 1.1, backgroundColor: " #ff4757" }}
                     transition={{ duration: 0.3 }}
                   >
                     View Project →
