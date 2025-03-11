@@ -23,6 +23,7 @@ import "./Skills.css";
 import axios from "axios";
 import "./Contact.css";
 import profilePic from "../src/images/DSC_7209.JPG";
+import gif from "../src/images/animated.gif";
 import profilePic1 from "../src/images/images.jpeg";
 import profilePic2 from "../src/images/images (1).jpeg";
 import profilePic3 from "../src/images/frontend.jpg";
@@ -40,7 +41,7 @@ import "./Certifications.css";
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
-  const [activeCard, setActiveCard] = useState(null);
+  
   const [popupType, setPopupType] = useState(null);
   const [selectedCert, setSelectedCert] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -136,26 +137,6 @@ const App = () => {
     });
   }, []);
 
-  // Card Data
-  const personalInfo = {
-    title: "Personal Info",
-    details: [
-      "👤 Name: venky",
-      "📍 Location: India",
-      "📧 Email: rajesh@example.com",
-      "📞 Phone: +91 9876543210",
-    ],
-  };
-
-  const educationInfo = {
-    title: "Educational Details",
-    details: [
-      "🎓 Degree: B.Tech in Civil Engineering",
-      "🏫 University: Geethanjali College Of Engineering And Technology",
-      "📅 Year: 2023",
-      "💻 Certification: Python Fullstack Developer - Itvedanth",
-    ],
-  };
 
   const [formData, setFormData] = useState({
     name: "",
@@ -343,8 +324,16 @@ const App = () => {
               download="Raju_Resume.pdf"
               className="cta-button"
             >
-              View My Resume 📄
+              Download Resume 📄
             </a>
+            <a
+        href="/resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="cta-button view-resume"
+      >
+        View Resume 👀
+      </a>
           </motion.div>
         </motion.div>
 
@@ -453,57 +442,73 @@ const App = () => {
       </section>
 
       <section id="skills" className="section">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="skills-title"
+  <motion.h2
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+    className="skills-title"
+  >
+    My Skills & Tech Stack 🚀
+  </motion.h2>
+
+  <div className="skills-wrapper">
+  {window.innerWidth <= 768 && (
+  <motion.img
+    src={gif} // Replace with actual GIF URL
+    alt="Skills Animation"
+    className="skills-gif"
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+  />
+)}
+
+
+
+    <div className="skills-container">
+      {skillsData.map((category, index) => (
+        <motion.div
+          key={index}
+          className="skill-card"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          whileHover={{
+            scale: 1.1,
+            boxShadow: "0px 4px 15px rgba(255, 255, 255, 0.6)",
+          }}
+          transition={{ duration: 0.5, delay: index * 0.2 }}
         >
-          My Skills & Tech Stack 🚀
-        </motion.h2>
+          <h3 className="skill-category">
+            {category.icon} {category.category}
+          </h3>
+          <ul>
+            {category.skills.map((skill, i) => (
+              <motion.li
+                key={i}
+                whileHover={{ scale: 1.1, color: "#ff4757" }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                {skill}
+              </motion.li>
+            ))}
+          </ul>
 
-        <div className="skills-container">
-          {skillsData.map((category, index) => (
-            <motion.div
-              key={index}
-              className="skill-card"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              whileHover={{
-                scale: 1.1,
-                boxShadow: "0px 4px 15px rgba(255, 255, 255, 0.6)",
-              }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-            >
-              <h3 className="skill-category">
-                {category.icon} {category.category}
-              </h3>
-              <ul>
-                {category.skills.map((skill, i) => (
-                  <motion.li
-                    key={i}
-                    whileHover={{ scale: 1.1, color: "#ff4757" }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    {skill}
-                  </motion.li>
-                ))}
-              </ul>
+          {/* Skill Image */}
+          <motion.img
+            src={category.image} // Use imported images directly
+            alt={category.category}
+            className="skill-image"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          />
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
-              {/* Skill Image */}
-              <motion.img
-                src={category.image} // Use imported images directly
-                alt={category.category}
-                className="skill-image"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              />
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
       <section id="projects" className="projects-section">
         <motion.h2

@@ -108,21 +108,38 @@
   }
   
 /* Responsive */
+/* Mobile Mode: Enable Vertical Scroll & Ensure First/Last Cards Are Visible */
 @media (max-width: 768px) {
-    .skills-container {
+  .skills-container {
       flex-direction: column;
       align-items: center;
-    }
-  
-    .skill-card {
+      max-height: 400px; /* Restrict height for scroll */
+      overflow-y: auto; /* Enable vertical scrolling */
+      padding: 10px 0; /* Ensure space for first & last cards */
+      margin: 10px 0; /* Extra spacing to prevent cut-off */
+  }
+
+  /* Hide scrollbar but allow scrolling */
+  .skills-container::-webkit-scrollbar {
+      display: none;
+  }
+
+  .skills-container {
+      -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+      scrollbar-width: none; /* Hide scrollbar in Firefox */
+  }
+
+  .skill-card {
       width: 90%;
-    }
-  
-    .skill-image {
+      margin: 10px 0; /* Adds spacing so first & last cards are fully visible */
+  }
+
+  .skill-image {
       width: 60px;
       height: 60px;
-    }
   }
+  
+}
 
   #skills {
     position: relative;
@@ -140,12 +157,27 @@
     animation: sprinkle-stars 2s infinite alternate;
   }
   
-  @keyframes sprinkle-stars {
-    0% {
-      transform: translateY(-10px) translateX(10px);
-    }
-    100% {
-      transform: translateY(10px) translateX(-10px);
-    }
+ 
+  /* Styles for the animated GIF (Mobile Only) */
+/* Styles for Animated GIF (Mobile Only) */
+@media (max-width: 768px) {
+  .skills-gif {
+      width: 250px; /* Large size */
+      height: auto;
+      display: block;
+      margin: 0px auto; /* Centered & moved up */
+      position: relative;
+      top: -20px; /* Moves the GIF up */
+      transform: translateY(-200px); /* Moves it up */
+      animation: float 3s ease-in-out infinite;
   }
-  
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+
