@@ -161,3 +161,6 @@ h2 {
 
 /* Hide indicator on small screens where vertical scrolling is used */
 
+.cta-button{
+   margin-left:20px ;
+}
