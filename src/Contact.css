@@ -92,6 +92,27 @@
   .contact-form button:hover {
     background: #e84118;
   }
+
+  /* Default Dark Mode */
+.contact-profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid white; /* White border for dark mode */
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+/* Light Mode */
+.navbar.light .contact-profile-pic {
+  border-color: #0a0a0a; /* Dark border for light mode */
+}
+
+/* Hover Effect */
+.contact-profile-pic:hover {
+  transform: scale(1.1);
+}
+
   
   /* Thank You Message */
   .thank-you-message {
@@ -127,6 +148,9 @@
     transform: scale(1.1);
   }
   
+  .c1{
+    color: #292828;
+  }
   /* Responsive Design */
   @media (max-width: 768px) {
     .contact-profile-pic {

@@ -98,8 +98,8 @@ h2 {
 
 /* Welcome GIF Animation */
 .welcome-gif {
-  width: 80px; /* Adjust size */
-  height: auto;
+  width: 200px; /* Adjust size */
+  height: 200px;
   animation: jumpAnimation 5s infinite ease-in-out; /* Sync with typing */
 }
 
@@ -137,7 +137,8 @@ h2 {
   }
 
   .welcome-gif {
-    width: 60px;
+    width: 200px;
+    
   }
 
   .scroll-hint {

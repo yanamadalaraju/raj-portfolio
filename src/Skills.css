@@ -77,6 +77,15 @@
     transition: all 0.3s ease;
   } */
 
+  /* Dark Mode (Default) */
+.skill-card {
+    background: #1e1e2e;
+    color: #fff; /* Ensure text remains readable */
+}
+
+
+
+
   /* Skill Image */
 .skill-image {
     width: 80px;

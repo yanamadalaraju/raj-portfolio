@@ -109,8 +109,7 @@ const App = () => {
   const projects = [
     {
       title: "Stock Management System",
-      description:
-        "Developed a Stock Management System using React, Bootstrap, and Node.js, ensuring efficient inventory tracking and management.LOGIN CREDENTIALS FOR { Admin } --->'Email:admin@gmail.com',password:admin@123, LOGIN CREDENTIAL FOR { Users } --->'rajesh@gmail.com',password:456 ",
+      description: "Built with React, Bootstrap, and Node.js for efficient inventory tracking. (Admin: admin@gmail.com | Password: admin@123, User: rajesh@gmail.com |Password: 456)",
       image: stockImage,
       link: "http://175.29.21.7:81", // Direct external link
       icon: <FaBox size={24} color=" #ff4757" />,
@@ -706,16 +705,16 @@ const App = () => {
               className="contact-profile-pic"
             />
             <h3>Rajesh Yanamadala</h3>
-            <p>
+            <p className="c1 ">
               <strong>📍 Location:</strong> Hyderabad, India
-            </p>
-            <p>
+            </p >
+            <p className="c1">
               <strong>📧 Email:</strong> rajeshyanamadala2000@gmail.com
             </p>
-            <p>
+            <p className="c1">
               <strong>📞 Contact:</strong> +91 9346843156
             </p>
-            <p>Feel free to reach out for collaborations or opportunities!!</p>
+            <p className="c1">Feel free to reach out for collaborations or opportunities!!</p>
           </motion.div>
 
           {/* Social Links & Contact Form Card */}
