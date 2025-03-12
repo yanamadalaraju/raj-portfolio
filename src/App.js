@@ -153,8 +153,9 @@ const App = () => {
     message: "",
   });
   const [statusMessage, setStatusMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  // Handle form input changes
+  // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -162,17 +163,24 @@ const App = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setStatusMessage("Sending...");
 
     try {
       const response = await axios.post(
         "http://44.202.90.100:5000/send-email",
         formData
       );
-      setStatusMessage(response.data.message);
+      setStatusMessage("✅ " + response.data.message);
       setFormData({ name: "", email: "", phone: "", message: "" });
+
+      // Clear message after 3 seconds
+      setTimeout(() => setStatusMessage(""), 3000);
     } catch (error) {
       console.error("Error sending email:", error);
-      setStatusMessage("Failed to send message. Please try again.");
+      setStatusMessage("❌ Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
   
@@ -768,53 +776,63 @@ const App = () => {
 
             {/* Contact Form */}
             <div className="contact-form-container">
-              <motion.form onSubmit={handleSubmit} className="contact-form">
-                <motion.input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  whileFocus={{ scale: 1.05, borderColor: "#ff4757" }}
-                  required
-                />
-                <motion.input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  whileFocus={{ scale: 1.05, borderColor: "#ff4757" }}
-                  required
-                />
-                <motion.input
-                  type="tel"
-                  name="phone"
-                  placeholder="Your Mobile Number"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  whileFocus={{ scale: 1.05, borderColor: "#ff4757" }}
-                  required
-                />
-                <motion.textarea
-                  name="message"
-                  placeholder="Your Message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  whileFocus={{ scale: 1.05, borderColor: "#ff4757" }}
-                  required
-                />
-                <motion.button
-                  type="submit"
-                  whileHover={{ scale: 1.1, backgroundColor: "#ff4757" }}
-                >
-                  Send Message 🚀
-                </motion.button>
-              </motion.form>
-              {statusMessage && (
-                <p className="status-message">{statusMessage}</p>
-              )}
-            </div>
+      <motion.form onSubmit={handleSubmit} className="contact-form">
+        <motion.input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={formData.name}
+          onChange={handleChange}
+          whileFocus={{ scale: 1.05, borderColor: "#ff4757" }}
+          required
+        />
+        <motion.input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          value={formData.email}
+          onChange={handleChange}
+          whileFocus={{ scale: 1.05, borderColor: "#ff4757" }}
+          required
+        />
+        <motion.input
+          type="tel"
+          name="phone"
+          placeholder="Your Mobile Number"
+          value={formData.phone}
+          onChange={handleChange}
+          whileFocus={{ scale: 1.05, borderColor: "#ff4757" }}
+          required
+        />
+        <motion.textarea
+          name="message"
+          placeholder="Your Message"
+          value={formData.message}
+          onChange={handleChange}
+          whileFocus={{ scale: 1.05, borderColor: "#ff4757" }}
+          required
+        />
+
+        <motion.button
+          type="submit"
+          whileHover={{ scale: 1.1, backgroundColor: "#ff4757" }}
+          disabled={loading} // Disable button while loading
+        >
+          {loading ? "Sending..." : "Send Message 🚀"}
+        </motion.button>
+      </motion.form>
+
+      {statusMessage && (
+        <motion.p
+          className="status-message"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          {statusMessage}
+        </motion.p>
+      )}
+    </div>
 
             {/* Thank You Message */}
             <motion.p
