@@ -486,7 +486,7 @@ const App = () => {
     transition={{ duration: 1 }}
     className="skills-title"
   >
-    My Skills & Tech Stack 🚀
+     Skills & Tech Stack 🚀
   </motion.h2>
 
   <div className="skills-wrapper">
@@ -559,7 +559,7 @@ const App = () => {
           transition={{ duration: 1 }}
           className="projects-title"
         >
-          🚀 My Awesome Projects
+          🚀  Projects
         </motion.h2>
 
         <div className="projects-grid">
@@ -620,7 +620,7 @@ const App = () => {
         transition={{ duration: 1 }}
         className="certifications-title"
       >
-        🎓 My Certifications
+        🎓  Certifications
       </motion.h2>
 
       <div className="certifications-grid">
