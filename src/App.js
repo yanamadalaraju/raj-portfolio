@@ -724,7 +724,7 @@ const App = () => {
             <p className="c1">
               <strong>📞 Contact:</strong> +91 9346843156
             </p>
-            <p className="c1">Feel free to reach out for collaborations or opportunities!!</p>
+            <p className="c1">Feel free to reach out for collaborations or opportunities!!!</p>
           </motion.div>
 
           {/* Social Links & Contact Form Card */}
