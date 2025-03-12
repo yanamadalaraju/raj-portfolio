@@ -218,7 +218,8 @@ const App = () => {
       description: "Completed a comprehensive SQL course covering database design, queries, normalization, and optimization techniques.",
     },
   ];
- 
+  
+  
   return (
     <>
     <Helmet>
@@ -376,6 +377,7 @@ const App = () => {
         {/* Background Effects */}
         <div className="floating-shapes"></div>
         <div className="floating-glow"></div>
+        <div className="shooting-star"></div>
       </section>
 
       <section id="about" className="section">
