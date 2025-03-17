@@ -161,7 +161,8 @@
   }
 
   .project-card {
-      max-width: 300px;
+      max-width: 260px;
+      margin-left: 40px;
   }
 }
 
