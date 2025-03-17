@@ -9,7 +9,9 @@ import {
   FaBox,
   FaRobot,
   FaDatabase,
+  FaEye,
   FaGithub,
+  FaDownload,
   FaLinkedin,
   FaWhatsapp,
   FaInstagram,
@@ -219,7 +221,14 @@ const App = () => {
     },
   ];
   
-  
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/resume.pdf";
+    link.download = "Rajesh_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <>
     <Helmet>
@@ -311,34 +320,33 @@ const App = () => {
       {/* Sections */}
       {/* Home Section */}
       <section id="home" className="section">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="home-container"
-        >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, ease: "easeInOut" }}
+        className="home-container"
+      >
+        {/* Desktop View */}
+        <div className="desktop-view">
           <motion.h2 className="home-title">
-  Hi, I'm{" "}
-  <span className="highlight-1">
-    <Typewriter
-      words={["Rajesh"]}
-      loop={false}
-      typeSpeed={100}
-      deleteSpeed={50}
-      delaySpeed={1000}
-      cursor
-      cursorStyle="|"
-    />
-  </span>
-
-  {/* Animated Welcome GIF */}
-  <img 
-    src="https://onlinegiftools.com/images/examples-onlinegiftools/jump-hello-transparent.gif" 
-    alt="Welcome to my portfolio"
-    className="welcome-gif"
-  />
-</motion.h2>
-
+            Hi, I'm{" "}
+            <span className="highlight-1">
+              <Typewriter
+                words={["Rajesh"]}
+                loop={false}
+                typeSpeed={100}
+                deleteSpeed={50}
+                delaySpeed={1000}
+                cursor
+                cursorStyle="|"
+              />
+            </span>
+            <img
+              src="https://onlinegiftools.com/images/examples-onlinegiftools/jump-hello-transparent.gif"
+              alt="Welcome"
+              className="welcome-gif"
+            />
+          </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -355,30 +363,51 @@ const App = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
+            className="button-container"
           >
-            <a
-              href="/resume.pdf"
-              download="Raju_Resume.pdf"
-              className="cta-button"
-            >
-              Download Resume 📄
+            <button onClick={handleDownload} className="cta-button primary">
+              <FaDownload /> Download Resume
+            </button>
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="cta-button secondary">
+              <FaEye /> View Resume
             </a>
-            <a
-        href="/resume.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="cta-button view-resume"
-      >
-        View Resume 👀
-      </a>
           </motion.div>
-        </motion.div>
+        </div>
 
-        {/* Background Effects */}
-        <div className="floating-shapes"></div>
-        <div className="floating-glow"></div>
-        <div className="shooting-star"></div>
-      </section>
+        {/* Mobile View - Professional & Elegant */}
+        <div className="mobile-view">
+          <motion.div className="mobile-content" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
+            <motion.h1 className="mobile-title">
+              Hello, I'm <span className="highlight">Rajesh</span>
+            </motion.h1>
+            <motion.p className="mobile-subtitle">
+              A <span className="highlight">Python Full Stack Developer</span> passionate about building elegant and efficient web solutions.
+            </motion.p>
+            <motion.img 
+              src="https://onlinegiftools.com/images/examples-onlinegiftools/jump-hello-transparent.gif" 
+              alt="Welcome"
+              className="mobile-welcome-gif"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            />
+            <motion.div className="mobile-buttons" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
+              <button onClick={handleDownload} className="cta-button primary">
+                <FaDownload /> Download Resume
+              </button>
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="cta-button secondary">
+                <FaEye /> View Resume
+              </a>
+            </motion.div>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Background Effects */}
+      <div className="floating-shapes"></div>
+      <div className="floating-glow"></div>
+      <div className="shooting-star"></div>
+    </section>
 
       <section id="about" className="section">
         <motion.div
