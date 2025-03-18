@@ -111,9 +111,11 @@ const App = () => {
   const projects = [
     {
       title: "Stock Management System",
-      description: "Built with React, Bootstrap, and Node.js for efficient inventory tracking. (Admin: admin@gmail.com | Password: admin@123, User: rajesh@gmail.com |Password: 456)",
+      description:
+        "Built with React, Bootstrap, and Node.js for efficient inventory tracking. (Admin: admin@gmail.com | Password: admin@123, User: rajesh@gmail.com | Password: 456)",
       image: stockImage,
-      link: "http://175.29.21.7:81", // Direct external link
+      link: "http://175.29.21.7:81", // Project Link
+      blog: "https://stock-management-systems.hashnode.dev/stock-management-system", // Blog Link
       icon: <FaBox size={24} color=" #ff4757" />,
     },
     {
@@ -122,6 +124,7 @@ const App = () => {
         "An interactive AI-powered chatbot for customer support and automation.",
       image: chatbottImage,
       link: "/projects/chatbot-ai",
+      blog: "https://yourblog.com/ai-chatbot",
       icon: <FaRobot size={24} color="#1e90ff" />,
     },
     {
@@ -130,9 +133,11 @@ const App = () => {
         "A smart AI-based database management system for optimized querying.",
       image: databaseeImage,
       link: "/projects/ai-database-agent",
+      blog: "https://yourblog.com/ai-database-agent",
       icon: <FaDatabase size={24} color="#ffa502" />,
     },
   ];
+  
 
   useEffect(() => {
     const cursor = document.querySelector(".cursor-effect");
@@ -581,64 +586,81 @@ const App = () => {
 </section>
 
 
-      <section id="projects" className="projects-section">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="projects-title"
-        >
-          🚀  Projects
-        </motion.h2>
+<section id="projects" className="projects-section">
+  <motion.h2
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+    className="projects-title"
+  >
+    🚀 Projects
+  </motion.h2>
 
-        <div className="projects-grid">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="project-card"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              whileHover={{
-                scale: 1.05,
-                rotateX: 10,
-                boxShadow: "0px 10px 30px rgba(255, 215, 0, 0.7)",
-              }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-            >
-              <div className="project-card-inner">
-                {/* Front Side (Image) */}
-                <div className="project-card-front">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="project-image"
-                  />
-                  <h3>
-                    {project.icon} {project.title}
-                  </h3>
-                </div>
+  <div className="projects-grid">
+    {projects.map((project, index) => (
+      <motion.div
+        key={index}
+        className="project-card"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        whileHover={{
+          scale: 1.05,
+          rotateX: 10,
+          boxShadow: "0px 10px 30px rgba(255, 215, 0, 0.7)",
+        }}
+        transition={{ duration: 0.5, delay: index * 0.2 }}
+      >
+        <div className="project-card-inner">
+          {/* Front Side (Image) */}
+          <div className="project-card-front">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="project-image"
+            />
+            <h3>
+              {project.icon} {project.title}
+            </h3>
+          </div>
 
-                {/* Back Side (Details) */}
-                <div className="project-card-back">
-                  <p>{project.description}</p>
-                  <motion.a
-                    href={project.link}
-                    className="project-button"
-                    target={
-                      project.link.startsWith("http") ? "_blank" : "_self"
-                    } // Open external links in a new tab
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, backgroundColor: " #ff4757" }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    View Project →
-                  </motion.a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          {/* Back Side (Details) */}
+          <div className="project-card-back">
+            <p>{project.description}</p>
+            <div className="project-buttons">
+              {/* View Project Button */}
+              <motion.a
+                href={project.link}
+                className="project-button"
+                target={project.link.startsWith("http") ? "_blank" : "_self"}
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, backgroundColor: "#ff4757" }}
+                transition={{ duration: 0.3 }}
+              >
+                View Project →
+              </motion.a>
+
+              {/* View Blog Button (Only if blog link exists) */}
+              {project.blog && (
+                <motion.a
+                  href={project.blog}
+                  className="project-button view-blog"
+                  target={project.blog.startsWith("http") ? "_blank" : "_self"}
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, backgroundColor: "#007bff" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  View Blog →
+                </motion.a>
+              )}
+            </div>
+          </div>
         </div>
-      </section>
+      </motion.div>
+    ))}
+  </div>
+</section>
+
+
     
      {/* Certifications */}
         

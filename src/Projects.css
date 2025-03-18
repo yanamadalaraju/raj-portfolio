@@ -164,9 +164,25 @@
       max-width: 260px;
       margin-left: 40px;
   }
+  .view-blog{
+    margin-top: 10px;
+    margin-right: 20px;
+  }
+  
 }
 
 .project-card-back p {
   color: black !important;
   font-weight: bold; /* Optional: Makes text more readable */
+}
+
+
+.view-blog {
+  background-color: #007bff;
+  margin-left: 20px;
+  color: #fff;
+}
+
+.view-blog:hover {
+  background-color: #0056b3;
 }
