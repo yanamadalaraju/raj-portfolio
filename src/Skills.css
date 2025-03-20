@@ -179,6 +179,7 @@
       top: -20px; /* Moves the GIF up */
       transform: translateY(-200px); /* Moves it up */
       animation: float 3s ease-in-out infinite;
+      border-radius: 10%;
   }
 }
 

@@ -124,7 +124,7 @@ const App = () => {
         "An interactive AI-powered chatbot for customer support and automation.",
       image: chatbottImage,
       link: "/projects/chatbot-ai",
-      blog: "https://yourblog.com/ai-chatbot",
+      blog: "https://my-agent.hashnode.dev/ai-chatbot",
       icon: <FaRobot size={24} color="#1e90ff" />,
     },
     {
@@ -133,7 +133,7 @@ const App = () => {
         "A smart AI-based database management system for optimized querying.",
       image: databaseeImage,
       link: "/projects/ai-database-agent",
-      blog: "https://yourblog.com/ai-database-agent",
+      blog: "https://ai-chatbotdatabase-agent.hashnode.dev/ai-chat-bot-and-data-base-agent",
       icon: <FaDatabase size={24} color="#ffa502" />,
     },
   ];
