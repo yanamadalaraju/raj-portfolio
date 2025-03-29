@@ -37,6 +37,7 @@ import profilePic4 from "../src/images/program.jpg";
 import stockImage from "../src/images/Stock_management.jpg";
 import chatbottImage from "../src/images/Ai_chat_bot.png";
 import databaseeImage from "../src/images/Ai_db_agent.jpg";
+import databaseeImage1 from "../src/images/message-queue-image.jpg";
 import webdevelopment from "../src/images/webdevelopment.jpg";
 import fullstackdevelopment from "../src/images/full-stack-development.jpg";
 import dataAnalyst from "../src/images/data_analysts.jpg";
@@ -134,6 +135,15 @@ const App = () => {
       image: databaseeImage,
       link: "/projects/ai-database-agent",
       blog: "https://ai-chatbotdatabase-agent.hashnode.dev/ai-chat-bot-and-data-base-agent",
+      icon: <FaDatabase size={24} color="#ffa502" />,
+    },
+    {
+      title: "Queue Management System",
+      description:
+        "A Queue Management System (QMS) efficiently handles and prioritizes tasks asynchronously, ensuring smooth execution without blocking main processes. It is widely used for background job processing, email queues, file handling, and AI/ML workloads, improving system performance and scalability.",
+      image: databaseeImage1,
+      link: "/projects/Queue-management-system",
+      blog: "https://queue-management-system.hashnode.dev/queue-management-system",
       icon: <FaDatabase size={24} color="#ffa502" />,
     },
   ];
